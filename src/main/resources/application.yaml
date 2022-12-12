@@ -1,0 +1,20 @@
+# Where the application is hosted on.
+server:
+  port: 8080
+  servlet:
+    context-path: /yolp
+
+spring:
+  application:
+    name: yolp
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=yolp
+    username: postgres
+    password: revature
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: true
+    hibernate:
+      # hibernate will drop and create your tables whenever you start your application.
+      ddl-auto: update
