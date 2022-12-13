@@ -5,6 +5,7 @@ import com.revature.yolp.dtos.responses.Principal;
 import com.revature.yolp.services.TokenService;
 import com.revature.yolp.services.UserService;
 import com.revature.yolp.utils.custom_exceptions.InvalidAuthException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

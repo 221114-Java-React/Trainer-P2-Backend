@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Service
 public class TokenService {
-    private JwtConfig jwtConfig;
+    private final JwtConfig jwtConfig;
 
     public TokenService(JwtConfig jwtConfig) {
         this.jwtConfig = jwtConfig;
@@ -27,7 +27,6 @@ public class TokenService {
                 .setSubject(subject.getUsername())
                 .claim("role", subject.getRole())
                 .signWith(jwtConfig.getSigAlg(), jwtConfig.getSigningKey());
-
         return tokenBuilder.compact();
     }
 
