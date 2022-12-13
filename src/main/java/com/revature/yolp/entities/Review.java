@@ -11,13 +11,13 @@ public class Review {
     @Id
     private String id;
 
-    @Column(name = "rating")
-    private String rating;
+    @Column(name = "rating", nullable = false)
+    private int rating;
 
-    @Column(name = "msg")
+    @Column(name = "msg", nullable = false)
     private String msg;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
 
     @ManyToOne
@@ -25,7 +25,7 @@ public class Review {
             name = "restaurant_id",
             nullable = false
     )
-    @JsonBackReference // the child
+    @JsonBackReference
     private Restaurant restaurant;
 
     @ManyToOne
@@ -40,14 +40,14 @@ public class Review {
         super();
     }
 
-    public Review(String id, String rating, String msg, String username) {
+    public Review(String id, int rating, String msg, String username) {
         this.id = id;
         this.rating = rating;
         this.msg = msg;
         this.username = username;
     }
 
-    public Review(String id, String rating, String msg, String username, Restaurant restaurant, User user) {
+    public Review(String id, int rating, String msg, String username, Restaurant restaurant, User user) {
         this.id = id;
         this.rating = rating;
         this.msg = msg;
@@ -64,11 +64,11 @@ public class Review {
         this.id = id;
     }
 
-    public String getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
@@ -108,7 +108,7 @@ public class Review {
     public String toString() {
         return "Review{" +
                 "id='" + id + '\'' +
-                ", rating='" + rating + '\'' +
+                ", rating=" + rating +
                 ", msg='" + msg + '\'' +
                 ", username='" + username + '\'' +
                 ", restaurant=" + restaurant +

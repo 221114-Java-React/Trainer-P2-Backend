@@ -25,4 +25,5 @@ hs_err_pid*
 *.idea/
 *target/
 *.properties
-application.yaml
+application.yml
+*.DS_Store

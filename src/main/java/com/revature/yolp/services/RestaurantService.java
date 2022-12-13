@@ -5,6 +5,7 @@ import com.revature.yolp.repositories.RestaurantRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantService {
@@ -16,5 +17,9 @@ public class RestaurantService {
 
     public List<Restaurant> getAllRestaurants() {
         return (List<Restaurant>) restoRepo.findAll();
+    }
+
+    public Optional<Restaurant> getRestaurantById(String id) {
+        return restoRepo.findById(id);
     }
 }
