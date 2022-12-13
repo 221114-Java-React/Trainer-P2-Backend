@@ -26,7 +26,7 @@ jobs:
           path: src/main/resources/application.yml
           write-mode: overwrite
           contents: |
-            ${{ secrets.APPLICATION_YAML }}
+            ${{ secrets.APPLICATION_YML }}
 
       - name: Build with Maven
         run: mvn clean install
@@ -34,7 +34,7 @@ jobs:
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v20
         with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: yolp
           environment_name: Yolp-env
