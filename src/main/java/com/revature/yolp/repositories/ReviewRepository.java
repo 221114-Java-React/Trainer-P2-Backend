@@ -1,13 +1,13 @@
 package com.revature.yolp.repositories;
 
 import com.revature.yolp.entities.Review;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface ReviewRepository extends CrudRepository<Review, String> {
+public interface ReviewRepository extends JpaRepository<Review, String> {
     @Query(value = "SELECT * FROM reviews WHERE restaurant_id = ?1", nativeQuery = true)
     List<Review> findAllByRestaurantId(String id);
 
